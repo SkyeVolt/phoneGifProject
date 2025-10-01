@@ -1,7 +1,7 @@
-let ege;
+let egeh;
 
 function preload() {
-  ege = loadImage('ege.gif'); 
+  egeh = loadImage('egeh.gif'); 
 }
 
 
@@ -20,17 +20,15 @@ function setup() {
 }
 
 function draw() {
-  background(10, 10, 10);
-  
-  let scaleX = width / ege.width;
-  let scaleY = height / ege.height;
+  let scaleX = width / egeh.width;
+  let scaleY = height / egeh.height;
   let scale = max(scaleX, scaleY);
         
        
-  let scaledWidth = ege.width * scale;
-  let scaledHeight = ege.height * scale;
+  let scaledWidth = egeh.width * scale;
+  let scaledHeight = egeh.height * scale;
   let x = (width - scaledWidth) / 2;
   let y = (height - scaledHeight) / 2;
         
-  image(ege, x, y, scaledWidth, scaledHeight);
+  image(egeh, x, y, scaledWidth, scaledHeight);
 }
