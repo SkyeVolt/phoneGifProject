@@ -14,7 +14,8 @@ function setup() {
         canvasHeight = windowHeight;
         canvasWidth = canvasHeight * 0.5625;
   }
-  
+  window.sensorsEnabled
+  lockGestures();
   createCanvas(canvasWidth, canvasHeight);
   background(50);
 }
@@ -31,4 +32,20 @@ function draw() {
   let y = (height - scaledHeight) / 2;
         
   image(egeh, x, y, scaledWidth, scaledHeight);
+
+  if (window.sensorEnabled) { 
+    let x = width/2 + rotationY * 3; 
+    let y = height/2 + rotationX * 3; 
+    circle(x,y,50); 
+
+    if (deviceShaken) {
+      background(random(255), random(255), random(255)); 
+    } 
+
+    if (deviceMoved) { 
+      fill (255, 0, 0); 
+    }
+  } else { 
+    text('Tap to enable motion sensors', 20, 20); 
+  }
 }
