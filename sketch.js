@@ -1,4 +1,5 @@
 let egeh;
+let bell; 
 
 function preload() {
   egeh = loadImage('egeh.gif'); 
@@ -15,14 +16,22 @@ function setup() {
         canvasHeight = windowHeight;
         canvasWidth = canvasHeight * 0.5625;
   }
+  createCanvas(canvasWidth, canvasHeight);
+
+  showDebug();
 
   lockGestures();
-  createCanvas(canvasWidth, canvasHeight);
-  enableSoundTap('Tap to enable Tap');
+
+  bell.loop(); 
+  bell.pause(); 
+
+  enableSoundTap();
+
+  bell.setVolume(0.7); 
 }
 
 function draw() {
-  background(10);
+  background(50);
   let scaleX = width / egeh.width;
   let scaleY = height / egeh.height;
   let scale = max(scaleX, scaleY);
@@ -34,17 +43,28 @@ function draw() {
   let y = (height - scaledHeight) / 2;
         
   image(egeh, x, y, scaledWidth, scaledHeight);
-
-  if (window.soundEnabled) {
-    text('Tap anywhere to play sound', 20, 20);
-  } else {
-    text('Waiting for sound activation...', 20, 20);
-  }
+}
+function touchStarted() 
+{
+    if (window.soundEnabled) 
+    {
+        if (bell.isPlaying()) 
+        {
+            bell.pause();
+            debug("--- Touch: PAUSED ---");
+        }
+        else 
+        {
+            bell.play();
+            isPlaying = true;
+            debug("--- Touch: PLAYING ---");
+        }
+    }
+    
+    return false;
 }
 
-function mousePressed() {
-  // Check if sound is enabled before playing
-  if (window.soundEnabled && !mySound.isPlaying()) {
-    mySound.play();
-  }
+function touchEnded() 
+{
+    return false;
 }

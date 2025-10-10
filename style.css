@@ -1,9 +1,6 @@
 html, body {
   margin: 0pt;
-  padding: 20pt;
+  padding: 0pt;
   overflow: hidden;
   background-color: rgb(178, 6, 0);
-}
-canvas {
-  display: block;
 }
