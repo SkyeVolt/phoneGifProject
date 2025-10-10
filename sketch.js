@@ -56,7 +56,6 @@ function touchStarted()
         else 
         {
             audioTrack.play();
-            isPlaying = true;
             debug("--- Touch: PLAYING ---");
         }
     }
