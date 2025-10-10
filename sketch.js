@@ -39,11 +39,16 @@ function draw() {
     circle(x,y,50); 
 
     if (deviceShaken) {
-      background(random(255), random(255), random(255)); 
+      text("device is shooketh", 20, 20); 
+      fill(random(255), random(255), random(255)); 
     } 
 
     if (deviceMoved) { 
-      fill (255, 0, 0); 
+      text("device is shooketh", 20, 20); 
+      fill(0, 255, 0); 
+    }
+    else { 
+      fil(255, 0 ,0); 
     }
   } else { 
     enableGyroButton('Tap to enable motion sensors', 20, 20); 
