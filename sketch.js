@@ -2,6 +2,7 @@ let egeh;
 
 function preload() {
   egeh = loadImage('egeh.gif'); 
+  bell = loadSound('bell.mp3');
 }
 
 
@@ -17,11 +18,11 @@ function setup() {
 
   lockGestures();
   createCanvas(canvasWidth, canvasHeight);
-  background(50);
-  enableGyroTap('Tap to enable motion');
+  enableSoundTap('Tap to enable Tap');
 }
 
 function draw() {
+  background(10);
   let scaleX = width / egeh.width;
   let scaleY = height / egeh.height;
   let scale = max(scaleX, scaleY);
@@ -34,24 +35,16 @@ function draw() {
         
   image(egeh, x, y, scaledWidth, scaledHeight);
 
-  if (window.sensorEnabled) { 
-    let x = width/2 + rotationY * 3; 
-    let y = height/2 + rotationX * 3; 
-    circle(x,y,50); 
+  if (window.soundEnabled) {
+    text('Tap anywhere to play sound', 20, 20);
+  } else {
+    text('Waiting for sound activation...', 20, 20);
+  }
+}
 
-    if (deviceShaken == true) {
-      text("device is shooketh", 50, 50); 
-      fill(random(255), random(255), random(255)); 
-    } 
-
-    if (deviceMoved == true) { 
-      text("device is shooketh", 30, 30); 
-      fill(0, 255, 0); 
-    }
-    else { 
-      fil(255, 0 ,0); 
-    }
-  } else { 
-    text('motion sensors are not enabled', 20, 20); 
+function mousePressed() {
+  // Check if sound is enabled before playing
+  if (window.soundEnabled && !mySound.isPlaying()) {
+    mySound.play();
   }
 }
