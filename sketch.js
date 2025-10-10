@@ -46,6 +46,6 @@ function draw() {
       fill (255, 0, 0); 
     }
   } else { 
-    text('Tap to enable motion sensors', 20, 20); 
+    enableGyroButton('Tap to enable motion sensors', 20, 20); 
   }
 }
