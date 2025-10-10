@@ -14,10 +14,11 @@ function setup() {
         canvasHeight = windowHeight;
         canvasWidth = canvasHeight * 0.5625;
   }
-  window.sensorsEnabled
+
   lockGestures();
   createCanvas(canvasWidth, canvasHeight);
   background(50);
+  enableGyroTap('Tap to enable motion');
 }
 
 function draw() {
@@ -51,6 +52,6 @@ function draw() {
       fil(255, 0 ,0); 
     }
   } else { 
-    enableGyroButton('Tap to enable motion sensors', 20, 20); 
+    text('motion sensors are not enabled', 20, 20); 
   }
 }
