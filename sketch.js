@@ -44,26 +44,21 @@ function draw() {
         
   image(egeh, x, y, scaledWidth, scaledHeight);
 }
-function touchStarted() 
-{
-    if (window.soundEnabled) 
-    {
-        if (audioTrack.isPlaying()) 
-        {
+
+function touchStarted() {
+    if (window.soundEnabled) {
+        if (audioTrack.isPlaying()) {
             audioTrack.pause();
             debug("--- Touch: PAUSED ---");
         }
-        else 
-        {
+        else {
             audioTrack.play();
             debug("--- Touch: PLAYING ---");
         }
     }
-    
     return false;
 }
 
-function touchEnded() 
-{
+function touchEnded() {
     return false;
 }
