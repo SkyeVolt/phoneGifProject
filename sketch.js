@@ -39,13 +39,13 @@ function draw() {
     let y = height/2 + rotationX * 3; 
     circle(x,y,50); 
 
-    if (deviceShaken) {
-      text("device is shooketh", 20, 20); 
+    if (deviceShaken == true) {
+      text("device is shooketh", 50, 50); 
       fill(random(255), random(255), random(255)); 
     } 
 
-    if (deviceMoved) { 
-      text("device is shooketh", 20, 20); 
+    if (deviceMoved == true) { 
+      text("device is shooketh", 30, 30); 
       fill(0, 255, 0); 
     }
     else { 
