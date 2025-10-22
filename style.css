@@ -1,9 +1,11 @@
 html, body {
-  margin: 30pt;
-  padding: 60pt;
   overflow: hidden;
   background-image: url("background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-color: rgb(68, 5, 3);
+}
+
+img[src$=".gif"] { 
+  padding: 10px;
 }
