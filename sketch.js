@@ -28,6 +28,7 @@ function setup() {
   fire.pause();
 
   enableSoundTap();
+  enableGyroTap(); 
 
   audioTrack.setVolume(0.7); 
 }
@@ -63,4 +64,8 @@ function touchStarted() {
 
 function touchEnded() {
     return false;
+}
+
+function vibrate() {
+   egeh.vibrate(10); 
 }
