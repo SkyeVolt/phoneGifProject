@@ -1,9 +1,11 @@
 let egeh;
 let audioTrack; 
+let fire;
 
 function preload() {
   egeh = loadImage('egeh.gif'); 
   audioTrack = loadSound('AudioTrack.mp3');
+  fire = loadSound('fire.wav');
 }
 
 
@@ -23,7 +25,7 @@ function setup() {
   lockGestures();
 
   audioTrack.loop(); 
-  audioTrack.pause(); 
+  fire.pause();
 
   enableSoundTap();
 
@@ -47,12 +49,12 @@ function draw() {
 
 function touchStarted() {
     if (window.soundEnabled) {
-        if (audioTrack.isPlaying()) {
-            audioTrack.pause();
-            debug("--- Touch: PAUSED ---");
+        if (fire.isPlaying()) {
+            fire.play()();
+            debug("--- Touch: PLAYING ---");
         }
         else {
-            audioTrack.play();
+            fire.play();
             debug("--- Touch: PLAYING ---");
         }
     }
